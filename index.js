@@ -1,11 +1,13 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from "prop-types";
 import {
   ListView,
   Platform,
   StyleSheet,
   Text,
   TextInput,
-  View
+  View,
+  ViewPropTypes
 } from 'react-native';
 
 class Autocomplete extends Component {
@@ -15,7 +17,7 @@ class Autocomplete extends Component {
      * These styles will be applied to the container which
      * surrounds the autocomplete component.
      */
-    containerStyle: View.propTypes.style,
+    containerStyle: (ViewPropTypes || View.propTypes).style,
     /**
      * Assign an array of data objects which should be
      * rendered in respect to the entered text.
@@ -29,7 +31,7 @@ class Autocomplete extends Component {
      * These styles will be applied to the container which surrounds
      * the textInput component.
      */
-    inputContainerStyle: View.propTypes.style,
+    inputContainerStyle: (ViewPropTypes || View.propTypes).style,
     /*
      * Set `keyboardShouldPersistTaps` to true if RN version is <= 0.39.
      */
@@ -38,11 +40,11 @@ class Autocomplete extends Component {
      * These styles will be applied to the container which surrounds
      * the result list.
      */
-    listContainerStyle: View.propTypes.style,
+    listContainerStyle: (ViewPropTypes || View.propTypes).style,
     /**
      * These style will be applied to the result list.
      */
-    listStyle: ListView.propTypes.style,
+    listStyle: (ViewPropTypes || View.propTypes).style,
     /**
      * `onShowResults` will be called when list is going to
      * show/hide results.
